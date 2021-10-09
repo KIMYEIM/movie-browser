@@ -30,9 +30,9 @@ export default {
     toggleInput() {
       this.isClicked = !this.isClicked;
     },
-    // onEnter(e) {
-    //   const {value} = e.target;
-    // }
+    onEnter() {
+      this.$router.push(`/movies/${this.keyword}`);
+    }
   }
 }
 </script>

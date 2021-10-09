@@ -1,7 +1,9 @@
 <template>
   <div class="movies__container">
     <header class="movies__header">
-      <span class="material-icons">
+      <span 
+        class="material-icons"
+        @click="goBack">
         chevron_left
       </span>
       <input
@@ -9,6 +11,7 @@
       ref="input"
       class="header__input"
       :value="this.nowTitle"
+      @keyup.enter="onEnter"
       />
     </header>
     <section class="movies__movies">
@@ -16,6 +19,8 @@
     </section>
     <Footer location="search"/>
   </div>
+  <div id="sticker--4"></div>
+  <div id="sticker--5"></div>
 </template>
 
 <script>
@@ -34,6 +39,16 @@ export default {
   computed: {
     nowTitle() {
       return this.$route.params.title;
+    }
+  }, 
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+    onEnter(e) {
+      const {value} = e.target
+      console.log(value);
+      this.$router.push(`/movies/${value}`);
     }
   }
 }
@@ -64,5 +79,21 @@ export default {
     .movies__movies {
       flex-grow: 1;
     }
+  }
+  #sticker--4 {
+  position: absolute;
+  width: 110px;
+  height: 120px;
+  left: 527.84px;
+  top: 80px;
+  background: no-repeat center /cover url('/src/images/image4.png');
+  }
+  #sticker--5 {
+    position: absolute;
+    width: 130px;
+    height: 190px;
+    left: 120px;
+    bottom: 15px;
+    background: no-repeat center /cover url('/src/images/image5.png');
   }
 </style>
