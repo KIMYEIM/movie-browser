@@ -15,7 +15,12 @@
       />
     </header>
     <section class="movies__movies">
-
+      <ul class="item__container">
+        <MovieItem 
+          v-for="movie in movies"
+          :key="movie.imdbID"
+          :movie="movie" />
+      </ul>
     </section>
     <Footer location="search"/>
   </div>
@@ -25,15 +30,17 @@
 
 <script>
 import Footer from '~/components/Footer'
+import MovieItem from '~/components/MovieItem'
 export default {
   components: {
     Footer,
+    MovieItem
   },
   directives: {
     focus: {
       mounted(el) {
         el.focus()
-        }
+      }
     }
   },
   created() {
@@ -41,9 +48,19 @@ export default {
       title: this.nowTitle
     })
   },
+  watch: {
+    $route() {
+      this.$store.dispatch('movie/fetchMovies', {
+      title: this.nowTitle
+    })
+    }
+  },
   computed: {
     nowTitle() {
       return this.$route.params.title;
+    },
+    movies() {
+      return this.$store.state.movie.movies;
     }
   }, 
   methods: {
@@ -70,6 +87,7 @@ export default {
       align-items: center;
       height: 147px;
       border-bottom: 1px solid black;
+      flex-shrink: 0;
       input {
         margin-left: 30px;
         text-transform: uppercase;
@@ -83,6 +101,12 @@ export default {
     }
     .movies__movies {
       flex-grow: 1;
+      padding: 0 13vw;
+      overflow-y: scroll;
+      .item__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
   #sticker--4 {

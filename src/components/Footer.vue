@@ -21,5 +21,6 @@ export default {
     justify-content: center;
     font-family: 'Source Serif Pro', serif;
     font-size: 24px;
+    flex-shrink: 0;
   }
 </style>

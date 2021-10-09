@@ -16,15 +16,14 @@ export default {
     },
   },
   actions: {
-    async fetchMovies({commit}, payload) {
+    async fetchMovies({commit, state}, payload) {
       const {title} = payload;
       const {Search} = await _request({
         title,
       });
-      console.log('Search: ', Search);
-      commit('assignState', {
+      await commit('assignState', {
         movies: Search
-      })
+      });
     }
   },
 };
