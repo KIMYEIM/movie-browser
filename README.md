@@ -1,2 +1,15 @@
-## 8주차 과제 배포를 위한 Public 레포
-기존 과제 제출 레포와 같은 형식으로 사용해 주시면 됩니다!
+## vue로 영화 검색 앱 만들기
+
+### 화면 구성
+- [x] Home
+  - [ ] Search
+    - [ ] onEnter: 입력 받은 검색어로 라우팅 & store에 저장
+  - [ ] Menu
+  - [ ] Footer
+- [x] Movies
+  - [x] Header
+    - [ ] Home Btn
+    - [ ] Search
+      - [ ] onEnter: 입력 받은 검색어로 라우팅 & store에 저장
+  - [ ] Movie container
+  - [x] Footer

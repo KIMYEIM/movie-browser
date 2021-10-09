@@ -36,6 +36,11 @@ export default {
         }
     }
   },
+  created() {
+    this.$store.dispatch('movie/fetchMovies', {
+      title: this.nowTitle
+    })
+  },
   computed: {
     nowTitle() {
       return this.$route.params.title;
