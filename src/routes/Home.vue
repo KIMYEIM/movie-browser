@@ -4,9 +4,7 @@
         <h1>MOVIE BROWSER.</h1>
       </div>
       <div class="home__menu">
-        <div class="menu__item">
-          SEARCH FOR MOVIES BY NAME
-        </div>
+        <Search />
         <div class="menu__item">
           LATEST
         </div>
@@ -28,9 +26,11 @@
 
 <script>
 import Footer from '~/components/Footer'
+import Search from '~/components/Search'
 export default {
   components: {
     Footer,
+    Search
   },
 }
 </script>
