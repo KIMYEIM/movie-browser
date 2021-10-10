@@ -5,11 +5,7 @@
       <input v-focus ref="input" class="header__input" :value="this.nowTitle" @keyup.enter="onEnter" />
     </header>
     <section class="movies__movies">
-      <ul class="item__container">
-        <MovieItem 
-          v-for="movie in movies"
-          :key="movie.imdbID"
-          :movie="movie" />
+      <div v-if="isLoading" class="movies__loading" />
       <ul v-else class="item__container">
         <MovieItem v-for="movie in movies" :toggle="toggleModal" :key="movie.imdbID" :movie="movie" />
       </ul>
@@ -67,7 +63,9 @@ export default {
     movie() {
       return this.$store.state.movie.nowMovie;
     },
-    }
+    isLoading() {
+      return this.$store.state.movie.isLoading;
+    },
   },
   methods: {
     goBack() {
@@ -116,6 +114,11 @@ export default {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+  .movies__loading {
+    width: 100%;
+    height: 500px;
+    background: center / contain no-repeat url('/src/images/nyan-cat.gif');
   }
 }
 #sticker--4 {

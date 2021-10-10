@@ -1,6 +1,7 @@
 <template>
   <div class="modal__page" @click="closeModal">
     <div class="modal__container" @click.stop>
+      <div v-if="isLoading" class="loading__img" />
       <div v-else class="movie__container">
         <div
           class="movie__poster"
@@ -39,6 +40,9 @@ export default {
     nowMovie() {
       return this.$store.state.movie.nowMovie;
     },
+    isLoading() {
+      return this.$store.state.movie.isLoading;
+    },
   },
   methods: {
     closeModal() {
@@ -74,6 +78,11 @@ export default {
   .movie__poster {
     height: 100%;
     aspect-ratio: 300/450;
+  }
+  .loading__img {
+    width: 100%;
+    height: 100%;
+    background: center / contain no-repeat url('/src/images/nyan-cat.gif');
   }
 }
 </style>
