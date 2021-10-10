@@ -62,7 +62,7 @@ export default {
       return this.$store.state.movie.nowMovie;
     },
     isLoading() {
-      return this.$store.state.movie.isLoading;
+      return this.$store.state.movie.moviesLoading;
     },
   },
   methods: {
@@ -76,7 +76,6 @@ export default {
     toggleModal() {
       this.isModalOpened = !this.isModalOpened;
     },
-    fetchMovie() {},
   },
 };
 </script>

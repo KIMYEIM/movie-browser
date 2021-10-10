@@ -5,7 +5,8 @@ export default {
       title: '',
       movies: [],
       nowMovie: {},
-      isLoading: false,
+      moviesLoading: false,
+      movieLoading: false,
     };
   },
   getters: {},
@@ -18,7 +19,7 @@ export default {
   },
   actions: {
     async fetchMovies({ commit, state }, payload) {
-      state.isLoading = true;
+      state.moviesLoading = true;
       const { title = ''} = payload;
       const { Search } = await _request({
         title,
@@ -27,10 +28,10 @@ export default {
       await commit('assignState', {
         movies: Search,
       });
-      state.isLoading = false;
+      state.moviesLoading = false;
     },
     async fetchMovie({ commit, state }, payload) {
-      state.isLoading = true;
+      state.movieLoading = true;
       const { id = ''} = payload;
       const res = await _request({
         id,
@@ -39,7 +40,7 @@ export default {
       await commit('assignState', {
         nowMovie: res,
       });
-      state.isLoading = false;
+      state.movieLoading = false;
     },
   },
 };

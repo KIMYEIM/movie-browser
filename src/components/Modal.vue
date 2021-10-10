@@ -46,7 +46,7 @@ export default {
       return this.$store.state.movie.nowMovie;
     },
     isLoading() {
-      return this.$store.state.movie.isLoading;
+      return this.$store.state.movie.movieLoading;
     },
   },
   methods: {
