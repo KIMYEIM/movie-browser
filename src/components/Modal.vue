@@ -13,7 +13,7 @@
           <article>
             <span>
               {{ nowMovie.Country }}
-              {{ nowMovie.Director === 'N/A' ? 'UNKNOWN' : nowMovie.Director }}
+              {{ nowMovie.Director === "N/A" ? "UNKNOWN" : nowMovie.Director }}
               {{ nowMovie.Genre }}
               {{ nowMovie.Released }}
               {{ nowMovie.Runtime }}
@@ -35,7 +35,7 @@ export default {
   props: {
     id: {
       type: String,
-      default: '',
+      default: "",
     },
     close: {
       type: Function,
@@ -103,7 +103,7 @@ export default {
       font-weight: 800;
       font-size: 48px;
       font-style: italic;
-      font-family: 'Source Serif Pro';
+      font-family: "Source Serif Pro";
     }
 
     span {
@@ -116,7 +116,7 @@ export default {
   .loading__img {
     width: 100%;
     height: 100%;
-    background: center / contain no-repeat url('/src/images/nyan-cat.gif');
+    background: center / contain no-repeat url("/src/images/nyan-cat.gif");
   }
 }
 </style>

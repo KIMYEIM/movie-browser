@@ -1,23 +1,15 @@
 <template>
   <div class="home__container">
-      <div class="home__top">
-        <h1>MOVIE BROWSER.</h1>
-      </div>
-      <div class="home__menu">
-        <Search />
-        <div class="menu__item">
-          LATEST
-        </div>
-        <div class="menu__item">
-          NOW PLAYING
-        </div>
-        <div class="menu__item">
-          TOP POPULAR
-        </div>
-      </div>
-    <Footer
-      class="footer" 
-      location="home"/>
+    <div class="home__top">
+      <h1>MOVIE BROWSER.</h1>
+    </div>
+    <div class="home__menu">
+      <Search />
+      <div class="menu__item">LATEST</div>
+      <div class="menu__item">NOW PLAYING</div>
+      <div class="menu__item">TOP POPULAR</div>
+    </div>
+    <Footer class="footer" location="home" />
   </div>
   <div id="sticker--1"></div>
   <div id="sticker--2"></div>
@@ -25,14 +17,14 @@
 </template>
 
 <script>
-import Footer from '~/components/Footer'
-import Search from '~/components/Search'
+import Footer from "~/components/Footer";
+import Search from "~/components/Search";
 export default {
   components: {
     Footer,
-    Search
+    Search,
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -63,7 +55,7 @@ export default {
   height: 131px;
   right: 330.82px;
   bottom: 445px;
-  background: url('/src/images/image2.png');
+  background: url("/src/images/image2.png");
   //clip-path: circle(42.9% at 49% 49%);
 }
 #sticker--2 {
@@ -72,7 +64,7 @@ export default {
   height: 210.89px;
   bottom: 280px;
   right: 80px;
-  background: url('/src/images/image1.png') center;
+  background: url("/src/images/image1.png") center;
 }
 #sticker--3 {
   position: absolute;
@@ -80,7 +72,6 @@ export default {
   height: 157.13px;
   left: 69.77px;
   bottom: 125px;
-  background: url('/src/images/image3.png') center;
+  background: url("/src/images/image3.png") center;
 }
-
 </style>

@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     fetchMovie() {
-      this.$store.dispatch('movie/fetchMovie', {
+      this.$store.dispatch("movie/fetchMovie", {
         id: this.movie.imdbID,
       });
     },
