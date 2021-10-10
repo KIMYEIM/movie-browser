@@ -9,16 +9,21 @@
             background: `center / cover no-repeat url(${nowMovie.Poster})`,
           }"
         />
-        <div class="movie__info"></div>
-        <div style="word-break: break-word">
-          {{ nowMovie.Title }}
-          {{ nowMovie.Country }}
-          {{ nowMovie.Director === 'N/A' ? 'UNKNOWN' : nowMovie.Director }}
-          {{ nowMovie.Genre }}
-          {{ nowMovie.Plot }}
-          {{ nowMovie.Released }}
-          {{ nowMovie.Runtime }}
-          {{ nowMovie.Actors }}
+        <div class="movie__info">
+          <article>
+            <span>
+              {{ nowMovie.Country }}
+              {{ nowMovie.Director === 'N/A' ? 'UNKNOWN' : nowMovie.Director }}
+              {{ nowMovie.Genre }}
+              {{ nowMovie.Released }}
+              {{ nowMovie.Runtime }}
+              {{ nowMovie.Actors }}
+            </span>
+            <br />
+            <br />
+            <title>{{ nowMovie.Title }}</title>
+            {{ nowMovie.Plot }}
+          </article>
         </div>
       </div>
     </div>
@@ -78,6 +83,35 @@ export default {
   .movie__poster {
     height: 100%;
     aspect-ratio: 300/450;
+  }
+  .movie__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.6;
+    font-weight: 300;
+    word-break: break-word;
+    font-size: 32px;
+
+    article {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    title {
+      display: inline;
+      font-weight: 800;
+      font-size: 48px;
+      font-style: italic;
+      font-family: 'Source Serif Pro';
+    }
+
+    span {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 22px;
+      line-height: 1.3;
+      display: inline-block;
+    }
   }
   .loading__img {
     width: 100%;

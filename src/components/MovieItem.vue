@@ -34,7 +34,6 @@ export default {
     fetchMovie() {
       this.$store.dispatch('movie/fetchMovie', {
         id: this.movie.imdbID,
-        type: 'movie',
       });
     },
   },

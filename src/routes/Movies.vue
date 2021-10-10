@@ -42,14 +42,12 @@ export default {
   created() {
     this.$store.dispatch('movie/fetchMovies', {
       title: this.nowTitle,
-      type: 'movies',
     });
   },
   watch: {
     $route() {
       this.$store.dispatch('movie/fetchMovies', {
         title: this.nowTitle,
-        type: 'movies',
       });
     },
   },

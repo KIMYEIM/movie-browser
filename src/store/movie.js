@@ -19,10 +19,10 @@ export default {
   actions: {
     async fetchMovies({ commit, state }, payload) {
       state.isLoading = true;
-      const { title = '', type = '' } = payload;
+      const { title = ''} = payload;
       const { Search } = await _request({
         title,
-        type,
+        type: 'movies'
       });
       await commit('assignState', {
         movies: Search,
@@ -31,10 +31,10 @@ export default {
     },
     async fetchMovie({ commit, state }, payload) {
       state.isLoading = true;
-      const { id = '', type = '' } = payload;
+      const { id = ''} = payload;
       const res = await _request({
         id,
-        type,
+        type: 'movie'
       });
       await commit('assignState', {
         nowMovie: res,
