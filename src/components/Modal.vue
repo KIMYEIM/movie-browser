@@ -6,7 +6,7 @@
         <div
           class="movie__poster"
           :style="{
-            background: `center / cover no-repeat url(${nowMovie.Poster})`,
+            background: `center / cover no-repeat url(${nowMovie.Poster !== 'N/A' ? nowMovie.Poster : defaultImg})`,
           }"
         />
         <div class="movie__info">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import defaultImg from '~/images/default.png';
 export default {
   props: {
     id: {
@@ -40,6 +41,11 @@ export default {
     close: {
       type: Function,
     },
+  },
+  data() {
+    return {
+      defaultImg,
+    };
   },
   computed: {
     nowMovie() {

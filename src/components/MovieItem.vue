@@ -4,7 +4,7 @@
       <div
         class="movie__poster"
         :style="{
-          backgroundImage: `url(${movie.Poster})`,
+          backgroundImage: `url(${movie.Poster !== 'N/A' ? movie.Poster : defaultImg})`,
         }"
       />
       <div class="movie__info">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import defaultImg from '~/images/default.png';
 export default {
   props: {
     movie: {
@@ -30,9 +31,14 @@ export default {
       type: Function,
     },
   },
+  data() {
+    return {
+      defaultImg,
+    };
+  },
   methods: {
     fetchMovie() {
-      this.$store.dispatch("movie/fetchMovie", {
+      this.$store.dispatch('movie/fetchMovie', {
         id: this.movie.imdbID,
       });
     },
