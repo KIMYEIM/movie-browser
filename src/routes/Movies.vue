@@ -2,23 +2,12 @@
   <div class="movies__container">
     <header class="movies__header">
       <span class="material-icons" @click="goBack"> chevron_left </span>
-      <input
-        v-focus
-        ref="input"
-        class="header__input"
-        :value="this.nowTitle"
-        @keyup.enter="onEnter"
-      />
+      <input v-focus ref="input" class="header__input" :value="this.nowTitle" @keyup.enter="onEnter" />
     </header>
     <section class="movies__movies">
       <div v-if="isLoading" class="movies__loading" />
       <ul v-else class="item__container">
-        <MovieItem
-          v-for="movie in movies"
-          :toggle="toggleModal"
-          :key="movie.imdbID"
-          :movie="movie"
-        />
+        <MovieItem v-for="movie in movies" :toggle="toggleModal" :key="movie.imdbID" :movie="movie" />
       </ul>
     </section>
     <Footer location="search" />
@@ -29,9 +18,9 @@
 </template>
 
 <script>
-import Footer from "~/components/Footer";
-import MovieItem from "~/components/MovieItem";
-import Modal from "~/components/Modal";
+import Footer from '~/components/Footer';
+import MovieItem from '~/components/MovieItem';
+import Modal from '~/components/Modal';
 export default {
   components: {
     Footer,
@@ -51,13 +40,13 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("movie/fetchMovies", {
+    this.$store.dispatch('movie/fetchMovies', {
       title: this.nowTitle,
     });
   },
   watch: {
     $route() {
-      this.$store.dispatch("movie/fetchMovies", {
+      this.$store.dispatch('movie/fetchMovies', {
         title: this.nowTitle,
       });
     },
@@ -126,7 +115,7 @@ export default {
   .movies__loading {
     width: 100%;
     height: 500px;
-    background: center / contain no-repeat url("/src/images/nyan-cat.gif");
+    background: center / contain no-repeat url('/src/images/nyan-cat.gif');
   }
 }
 #sticker--4 {
@@ -135,7 +124,7 @@ export default {
   height: 120px;
   left: 527.84px;
   top: 80px;
-  background: no-repeat center / cover url("/src/images/image4.png");
+  background: no-repeat center / cover url('/src/images/image4.png');
 }
 #sticker--5 {
   position: absolute;
@@ -143,6 +132,6 @@ export default {
   height: 190px;
   left: 120px;
   bottom: 15px;
-  background: no-repeat center / cover url("/src/images/image5.png");
+  background: no-repeat center / cover url('/src/images/image5.png');
 }
 </style>

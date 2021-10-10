@@ -7,6 +7,6 @@
 <style lang="scss" scoped>
 .app__page {
   height: 100vh;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 </style>
